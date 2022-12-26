@@ -4,6 +4,7 @@ import CreateStudySet from "./pages/CreateStudySet";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import StudySet from "./pages/StudySet";
 
 const App = () => {
   const initialCardData = [];
@@ -33,6 +34,7 @@ const App = () => {
           }
         />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/buizlets/:id" element={<StudySet />} />
       </Routes>
     </Router>
   );

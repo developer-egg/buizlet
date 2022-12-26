@@ -14,7 +14,7 @@ const CreateStudySet = ({cardData, setCardData, isAuth}) => {
   let navigate = useNavigate()
 
   useEffect(() => {
-    if(!isAuth) {
+    if(!window.localStorage.getItem("isAuth")) {
       navigate("/login")
     }
   }, [])
