@@ -4,6 +4,7 @@ import CreateStudySet from "./pages/CreateStudySet";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import Quiz from "./pages/Quiz";
 import StudySet from "./pages/StudySet";
 
 const App = () => {
@@ -35,6 +36,7 @@ const App = () => {
         />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/buizlets/:id" element={<StudySet />} />
+        <Route path="/buizlets/:id/quiz" element={<Quiz />} />
       </Routes>
     </Router>
   );
