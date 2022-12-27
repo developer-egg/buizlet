@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase-config";
@@ -31,7 +31,7 @@ const Quiz = () => {
             }
 
             let otherAnswers = definitions_list
-            otherAnswers = otherAnswers.filter((answer) => answer != correctAnswer)
+            otherAnswers = otherAnswers.filter((answer) => answer !== correctAnswer)
 
             const otherAnswersLength = otherAnswers.length
 
@@ -39,10 +39,10 @@ const Quiz = () => {
                 // remove a random one
                 let index = Math.floor(Math.random() * otherAnswers.length)
 
-                otherAnswers = otherAnswers.filter((answer) => otherAnswers.indexOf(answer) != index)
+                otherAnswers = otherAnswers.filter((answer) => otherAnswers.indexOf(answer) !== index)
             }
 
-            if(quiz.length != terms_list.length) {
+            if(quiz.length !== terms_list.length) {
                 quiz.push({
                     question,
                     correctAnswer,
