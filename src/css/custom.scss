@@ -11,3 +11,12 @@ $theme-colors: (
 .home-page-button {
   width: 30% !important;
 }
+
+.card-tile {
+  color: #212529;
+  text-decoration: none;
+}
+
+.card-tile:hover {
+  color: #212529 !important;
+}
