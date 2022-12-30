@@ -1,0 +1,13 @@
+$theme-colors: (
+  "primary": #F92F60,
+);
+
+@import "node_modules/bootstrap/scss/bootstrap";
+
+.white-text {
+    color: white !important;
+}
+
+.home-page-button {
+  width: 30% !important;
+}
