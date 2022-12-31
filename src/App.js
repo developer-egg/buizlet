@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainNavbar from "./components/Navbar";
 import CreateStudySet from "./pages/CreateStudySet";
 import Dashboard from "./pages/Dashboard";
@@ -22,8 +22,9 @@ const App = () => {
 
   return (
     <>
-    <MainNavbar/>
       <Router>
+        <MainNavbar isAuth={isAuth} setIsAuth={setIsAuth} />
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
@@ -42,7 +43,7 @@ const App = () => {
           {/* <Route path="/buizlets/:id/quiz" element={<Quiz />} /> */}
         </Routes>
       </Router>
-      </>
+    </>
   );
 };
 

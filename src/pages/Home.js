@@ -1,6 +1,9 @@
 import { Container, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  let navigate = useNavigate()
+
   return (
     <>
       <Container>
@@ -15,8 +18,8 @@ const Home = () => {
             flashcards and quizzes with friends and classmates, however we
             highly recommend that you run away and use quizlet instead.
           </p>
-
-          <Button variant="primary" size="lg" className="white-text mt-4 home-page-button">
+          
+          <Button href="" variant="primary" size="lg" className="white-text mt-4 home-page-button" onClick={() => {navigate("/dashboard")}}>
             I hate myself
           </Button>
         </div>

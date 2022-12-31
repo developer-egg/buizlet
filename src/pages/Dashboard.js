@@ -21,7 +21,7 @@ const Dashboard = () => {
     return (
         <Container>
             <h1 className="mt-5">Browse 🅱️uizlets</h1>
-            {studySets.map((set) => <CardTile title={set.title} id={set.id} description={set.description} author={set.author.name}/>)}
+            {studySets.map((set) => <CardTile title={set.title} id={set.id} description={set.description} author={set.author.name} key={set.id}/>)}
         </Container>
     )
 }

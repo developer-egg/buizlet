@@ -1,6 +1,7 @@
 import { auth, provider } from "../firebase-config";
 import { signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { Button, Container } from "react-bootstrap";
 
 const Login = ({ setIsAuth }) => {
   let navigate = useNavigate();
@@ -15,10 +16,11 @@ const Login = ({ setIsAuth }) => {
   }
 
   return (
-    <>
-      <h1>Sign In To Continue</h1>
-      <button onClick={signInWithGoogle}>Sign In With Google</button>
-    </>
+    <Container className="d-flex flex-column min-vh-100 justify-content-center align-items-center">
+      <h1 className="mb-5">Sign in to 🅱️uizlet</h1>
+
+      <button onClick={signInWithGoogle} className="login-with-google-btn">Sign in with Google</button>
+    </Container>
   );
 };
 
