@@ -4,8 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../firebase-config";
 
 const MainNavbar = ({isAuth, setIsAuth}) => {
-  console.log(isAuth)
-
   function signOutUser() {
     signOut(auth).then(() => {
       setIsAuth(false)

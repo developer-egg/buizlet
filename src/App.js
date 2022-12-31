@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainNavbar from "./components/Navbar";
 import CreateStudySet from "./pages/CreateStudySet";
@@ -19,6 +19,10 @@ const App = () => {
 
   // bad solution but should work for now: initialize with a bunch of card objects
   const [cardData, setCardData] = useState(initialCardData);
+
+  useEffect(() => {
+    setIsAuth(window.localStorage.getItem('isAuth'))
+  })
 
   return (
     <>

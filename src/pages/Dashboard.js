@@ -11,7 +11,6 @@ const Dashboard = () => {
     useEffect(() => {
         async function getStudySets() {
             const data = await getDocs(studySetsCollectionRef)
-            console.log(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
             setStudySets(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
         }
 
