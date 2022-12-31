@@ -19,10 +19,9 @@ const MainNavbar = ({isAuth, setIsAuth}) => {
         <Navbar.Brand><Link className="custom-navbar-brand" to="/">🅱️uizlet</Link></Navbar.Brand>
 
         <Nav>
-          
-          <Nav.Link><Link className="custom-navbar-link" to="/dashboard">Dashboard</Link></Nav.Link>
-          <Nav.Link><Link className="custom-navbar-link" to="/create">Create</Link></Nav.Link>
-          {isAuth ? <Button className="white-text btn-sm" onClick={signOutUser}>Logout</Button> : <Nav.Link><Link className="custom-navbar-link" to="/login">Login</Link></Nav.Link>}
+          <Link className="nav-link" to="/dashboard">Dashboard</Link>
+          <Link className="nav-link" to="/create">Create</Link>
+          {isAuth ? <Button className="white-text btn-sm" onClick={signOutUser}>Logout</Button> : <Link className="nav-link" to="/login">Login</Link>}
           
         </Nav>
       </Container>
