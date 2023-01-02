@@ -1,6 +1,8 @@
 import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
+import { Button, Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import SetCard from "../components/Card";
 import { db } from "../firebase-config";
 
 const StudySet = () => {
@@ -65,20 +67,30 @@ const StudySet = () => {
   }
 
   return (
-    <>
-      <h1>{studySetData.title}</h1>
-      <p>
-        {studySetData.author === undefined
-          ? "by Anonymous"
-          : "by " + studySetData.author.name}
-      </p>
-      <p>{studySetData.description}</p>
+    <Container className="d-flex flex-column min-vh-100 justify-content-start align-items-center">
       <div>
-        <button onClick={prevCard}>&lt;</button>
-        <button onClick={flipCard}>{cardFace}</button>
-        <button onClick={nextCard}>&gt;</button>
+        <h1 className="mt-5">{studySetData.title}</h1>
+        <p>
+          {studySetData.author === undefined
+            ? "by Anonymous"
+            : "by " + studySetData.author.name}
+        </p>
+        <p className="mb-4">{studySetData.description}</p>
       </div>
-    </>
+
+      <div>
+        <SetCard flipCard={flipCard} cardFace={cardFace} />
+
+        <div className="study-set-buttons mt-3">
+          <Button onClick={prevCard} className="white-text study-set-button prev-button">
+            &lt;
+          </Button>
+          <Button onClick={nextCard} className="white-text study-set-button next-button">
+            &gt;
+          </Button>
+        </div>
+      </div>
+    </Container>
   );
 };
 

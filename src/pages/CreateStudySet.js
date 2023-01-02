@@ -59,7 +59,7 @@ const CreateStudySet = ({cardData, setCardData, isAuth}) => {
 
       {cardInputs}
 
-      <button onClick={addCard}>Add Card</button>
+      <button onClick={addCard}>Add Card</button> 
       <button onClick={createStudySet}>Create 🅱️uizlet</button>
     </>
   );

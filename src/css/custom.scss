@@ -73,3 +73,22 @@ $theme-colors: (
   text-decoration: none !important;
   color: #000000E6 !important;
 }
+
+.set-card {
+  width: 500px !important;
+  height: 250px !important;
+
+  text-align: center;
+}
+
+.study-set-buttons {
+  text-align: center;
+}
+
+.study-set-button {
+  width: 40%;
+}
+
+.next-button {
+  margin-left: 10px !important;
+}
