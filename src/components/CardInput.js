@@ -1,4 +1,6 @@
+import { setIndexConfiguration } from "firebase/firestore";
 import { useState, useEffect } from "react";
+import { FloatingLabel, FormControl, FormGroup } from "react-bootstrap";
 
 const CardInput = ({ number, cardData, setCardData }) => {
   const [term, setTerm] = useState("");
@@ -25,24 +27,33 @@ const CardInput = ({ number, cardData, setCardData }) => {
 
   return (
     <div>
-      <button onClick={() => {
-        console.log(cardData)
-      }}>test</button>
-
       <h3>{number}</h3>
       <hr />
-      <input
-        placeholder="term"
-        onChange={(event) => {
-          setTerm(event.target.value);
-        }}
-      />
-      <input
-        placeholder="definition"
-        onChange={(event) => {
-          setDefinition(event.target.value);
-        }}
-      />
+
+      <FormGroup className="mt-4">
+        <FloatingLabel label="Term">
+            <FormControl
+              className="mb-3"
+              type="text"
+              placeholder="Enter a term"
+              onChange={(event) => {
+                setTerm(event.target.value);
+              }}
+            />
+        </FloatingLabel>
+      </FormGroup>
+
+      <FormGroup className="mb-5">
+        <FloatingLabel label="Definition">
+            <FormControl
+              type="text"
+              placeholder="Enter a definition"
+              onChange={(event) => {
+                setDefinition(event.target.value);
+              }}
+            />
+        </FloatingLabel>
+      </FormGroup>
     </div>
   );
 };
