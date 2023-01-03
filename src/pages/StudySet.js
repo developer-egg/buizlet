@@ -1,13 +1,17 @@
 import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { Button, Container } from "react-bootstrap";
+import ReactCardFlip from "react-card-flip";
 import { useParams } from "react-router-dom";
 import SetCard from "../components/Card";
 import { db } from "../firebase-config";
 
 const StudySet = () => {
   const [studySetData, setStudySetData] = useState([]);
-  const [cardFace, setCardFace] = useState("Term");
+  const [term, setTerm] = useState("Term");
+  const [definition, setDefinition] = useState("Definition");
+
+  const [isFlipped, setIsFlipped] = useState(false);
 
   let { id } = useParams();
 
@@ -22,7 +26,8 @@ const StudySet = () => {
       let currentSet = allSets.filter((set) => set.id === id);
       currentSet = currentSet[0];
 
-      setCardFace(currentSet.cards[0].term);
+      setTerm(currentSet.cards[0].term);
+      setDefinition(currentSet.cards[0].definition);
       setStudySetData(currentSet);
     }
 
@@ -31,7 +36,8 @@ const StudySet = () => {
 
   useEffect(() => {
     if (studySetData.cards !== undefined) {
-      setCardFace(studySetData.cards[currentCardIndex].term);
+      setTerm(studySetData.cards[currentCardIndex].term);
+      setDefinition(studySetData.cards[currentCardIndex].definition);
     }
   }, [currentCardIndex]);
 
@@ -57,12 +63,11 @@ const StudySet = () => {
 
   function flipCard() {
     let cards = studySetData.cards;
-    let currentCard = cards[currentCardIndex];
 
-    if (cardFace === currentCard.term) {
-      setCardFace(currentCard.definition);
-    } else if (cardFace === currentCard.definition) {
-      setCardFace(currentCard.term);
+    if (!isFlipped) {
+      setIsFlipped(true)
+    } else {
+      setIsFlipped(false)
     }
   }
 
@@ -79,7 +84,10 @@ const StudySet = () => {
       </div>
 
       <div>
-        <SetCard flipCard={flipCard} cardFace={cardFace} />
+        <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+          <SetCard flipCard={flipCard} cardFace={term} />
+          <SetCard flipCard={flipCard} cardFace={definition} />
+        </ReactCardFlip>
 
         <div className="study-set-buttons mt-3">
           <Button onClick={prevCard} className="white-text study-set-button prev-button">
